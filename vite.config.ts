@@ -17,10 +17,10 @@ export default defineConfig({
         maximumFileSizeToCacheInBytes: 10000000,
       },
       manifest: {
-        name: "Look Scanned",
-        short_name: "Look Scanned",
+        name: "PDFSCN",
+        short_name: "PDFSCN",
         description:
-          "Look Scanned is a pure frontend site that makes your PDFs look scanned! No need for printers and scanners anymore - everything you need to do is just a few clicks.",
+          "PDFSCN is a pure frontend site that makes your PDFs look scanned! No need for printers and scanners anymore - everything you need to do is just a few clicks.",
         theme_color: "#ffffff",
         icons: [
           {
