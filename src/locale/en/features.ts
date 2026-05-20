@@ -17,17 +17,17 @@ export const features = {
   openSource: {
     title: 'Open Source',
     description:
-      'PDFSCAN is open source and available on {github}. Also, this site is inspired by another open source project {scanyourpdf}',
+      'PDFSCN is open source and available on {github}. Also, this site is inspired by another open source project {scanyourpdf}',
     github: 'GitHub',
     scanyourpdf: 'baicunko/scanyourpdf'
   },
   mobileFriendly: {
     title: 'Mobile Friendly',
-    description: 'PDFSCAN is mobile friendly. It works on all modern browsers and devices.'
+    description: 'PDFSCN is mobile friendly. It works on all modern browsers and devices.'
   },
   offlineUse: {
     title: 'Offline Use',
     description:
-      "PDFSCAN is offline-capable. It works even if you don't have a network connection."
+      "PDFSCN is offline-capable. It works even if you don't have a network connection."
   }
 }
