@@ -3,7 +3,14 @@ import { createI18n } from 'vue-i18n'
 import { en } from './en'
 import { zhCN } from './zh-CN'
 
-const currentLocale = navigator?.language
+const getInitialLocale = () => {
+  const saved = localStorage.getItem('lang')
+  if (saved) return saved
+  const lang = navigator?.language || 'en'
+  return lang.startsWith('zh') ? 'zh' : 'en'
+}
+
+const currentLocale = getInitialLocale()
 
 type DeepPartial<T> = T extends object
   ? {

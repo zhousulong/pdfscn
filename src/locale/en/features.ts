@@ -17,17 +17,17 @@ export const features = {
   openSource: {
     title: 'Open Source',
     description:
-      'Look Scanned is open source and available on {github}. Also, this site is inspired by another open source project {scanyourpdf}',
+      'PDFSCAN is open source and available on {github}. Also, this site is inspired by another open source project {scanyourpdf}',
     github: 'GitHub',
     scanyourpdf: 'baicunko/scanyourpdf'
   },
   mobileFriendly: {
     title: 'Mobile Friendly',
-    description: 'Look Scanned is mobile friendly. It works on all modern browsers and devices.'
+    description: 'PDFSCAN is mobile friendly. It works on all modern browsers and devices.'
   },
   offlineUse: {
     title: 'Offline Use',
     description:
-      "Look Scanned is offline-capable. It works even if you don't have a network connection."
+      "PDFSCAN is offline-capable. It works even if you don't have a network connection."
   }
 }

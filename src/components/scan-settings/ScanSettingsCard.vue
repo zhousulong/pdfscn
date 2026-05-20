@@ -1,44 +1,27 @@
 <template>
-  <n-card
-    :segmented="{
-      content: true,
-      footer: 'soft'
-    }"
-  >
-    <n-collapse :default-expanded-names="['Settings']">
-      <template #header-extra>
-        <n-icon><ChevronDown12Regular /></n-icon>
-      </template>
-      <template #arrow>
-        <n-icon style="margin-right: 2px">
-          <AreaCustom />
-        </n-icon>
-      </template>
-      <n-collapse-item :title="t('settings.settings')" name="Settings">
-        <!-- Scan Settings -->
-        <n-space :size="40" style="margin-bottom: 10px">
-          <ColorspaceSetting v-model:colorspace="config.colorspace" />
-          <BorderSetting v-model:border="config.border" />
-        </n-space>
+  <div class="section">
+    <h2 class="section-title">{{ t('settings.settings') }}</h2>
 
-        <RotateSetting v-model:rotate="config.rotate" />
-        <RotateVarianceSetting v-model:rotate_var="config.rotate_var" />
-        <BrightnessSetting v-model:brightness="config.brightness" />
-        <YellowishSetting v-model:yellowish="config.yellowish" />
-        <ContrastSetting v-model:contrast="config.contrast" />
-        <BlurSetting v-model:blur="config.blur" />
-        <NoiseSetting v-model:noise="config.noise" />
-        <ScaleSetting v-model:scale="config.scale" />
-      </n-collapse-item>
-    </n-collapse>
-  </n-card>
+    <!-- Scan Settings -->
+    <div class="switches-row">
+      <ColorspaceSetting v-model:colorspace="config.colorspace" />
+      <BorderSetting v-model:border="config.border" />
+    </div>
+
+    <div class="settings-list">
+      <RotateSetting v-model:rotate="config.rotate" />
+      <RotateVarianceSetting v-model:rotate_var="config.rotate_var" />
+      <BrightnessSetting v-model:brightness="config.brightness" />
+      <YellowishSetting v-model:yellowish="config.yellowish" />
+      <ContrastSetting v-model:contrast="config.contrast" />
+      <BlurSetting v-model:blur="config.blur" />
+      <NoiseSetting v-model:noise="config.noise" />
+      <ScaleSetting v-model:scale="config.scale" />
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { NCard, NSpace, NCollapse, NCollapseItem, NIcon } from 'naive-ui'
-import { AreaCustom } from '@vicons/carbon'
-import { ChevronDown12Regular } from '@vicons/fluent'
-
 import BorderSetting from './settings/BorderSetting.vue'
 import RotateSetting from './settings/RotateSetting.vue'
 import RotateVarianceSetting from './settings/RotateVarianceSetting.vue'
@@ -66,3 +49,33 @@ const emit = defineEmits<{
 
 const config = useVModel(props, 'config', emit)
 </script>
+
+<style scoped>
+.switches-row {
+  display: flex;
+  gap: var(--space-8);
+  margin-bottom: var(--space-4);
+  background: var(--color-surface-2);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.settings-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* Make sure n-form-item labels are clean and modern */
+:deep(.n-form-item) {
+  --n-label-font-size: var(--text-xs) !important;
+  --n-label-text-color: var(--color-text-dim) !important;
+  --n-label-height: 20px !important;
+  margin-bottom: var(--space-1) !important;
+}
+
+:deep(.n-form-item-blank) {
+  min-height: 24px !important;
+}
+</style>

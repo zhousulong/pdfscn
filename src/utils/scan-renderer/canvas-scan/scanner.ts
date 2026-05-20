@@ -3,6 +3,8 @@ import type { ScanRenderer } from '../types'
 import ScanWorker from './scan.worker?worker'
 import { createNoiseBlob } from './create-noise-blob'
 
+
+
 // to avoid web worker cold start
 const workers = [
   new ScanWorker(),

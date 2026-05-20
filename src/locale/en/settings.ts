@@ -18,7 +18,11 @@ export const settings = {
   pdfSelectLabel: 'Select PDF',
   pdfNoSelectMessage: 'No PDF selected',
   scale: 'Resolution',
-  yellowish: 'Yellowish',
+  yellowish: 'Yellowish (Sepia)',
   brightness: 'Brightness',
-  contrast: 'Contrast'
+  contrast: 'Contrast',
+  foldX: 'Horizontal Crease',
+  foldY: 'Vertical Crease',
+  crumple: 'Crumpled Paper',
+  smudge: 'Ink Smudges'
 }

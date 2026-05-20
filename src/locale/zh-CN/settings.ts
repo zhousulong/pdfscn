@@ -18,6 +18,11 @@ export const settings = {
   pdfSelectLabel: '选择 PDF 文件',
   pdfNoSelectMessage: '尚未选择 PDF 文件',
   scale: '分辨率',
+  yellowish: '纸张发黄 (Sepia)',
   brightness: '亮度',
-  contrast: '对比度'
+  contrast: '对比度',
+  foldX: '一次对折 (水平折痕)',
+  foldY: '二次对折 (垂直折痕)',
+  crumple: '揉搓型',
+  smudge: '页面上墨迹拖痕'
 }

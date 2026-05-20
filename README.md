@@ -1,41 +1,65 @@
-# 📚 Look Scanned Community Edition
+# 📄 PDFSCAN - PDF Scan Simulator
 
-![GitHub Workflow Status (main)](https://img.shields.io/github/actions/workflow/status/rwv/lookscanned.io/ci.yml?branch=main)
-![License](https://img.shields.io/github/license/rwv/lookscanned.io)
+PDFSCAN is a modern, secure, and pure frontend web application that converts clean digital PDF documents into realistic-looking scanned copies. 
 
-[lookscanned.io](https://lookscanned.io)
+Everything runs directly in your web browser—your documents never leave your device, ensuring maximum security and absolute privacy.
 
-Look Scanned is a pure frontend site that makes your PDFs look scanned! No need for printers and scanners anymore - everything you need to do is just a few clicks. Inspired by [baicunko/scanyourpdf](https://github.com/baicunko/scanyourpdf).
+---
+
+## ⚡ Modernization & Key Enhancements
+
+PDFSCAN is a complete modernization of historical PDF scanning tools. Key upgrades include:
+* **Modern Tech Stack**: Fully refactored to **Vue 3**, **TypeScript**, and **Vite** for blazing fast compilation and hot-module reloading.
+* **"Dark Precision" Design System**: Designed a professional, industrial, and sleek interface featuring full responsive layouts and native, synchronized dark mode.
+* **Dynamic SEO Integration**: Automated SEO metadata with a reactive title watcher that localized document tab titles on the fly.
+* **Offline-First (PWA)**: Built-in service workers allow the simulator to run fully offline without any network connectivity.
+* **Dual Rendering Engine**: Supports standard browser canvas-level rendering alongside ImageMagick-powered WebAssembly scanner pipelines for maximum flexibility.
+
+---
 
 ## ✨ Features
 
-* Everything is processed in your browser. No privacy risk.
-* Works without network connection using PWA.
-* See scanned PDF side-by-side in real time.
-* Works on all modern browsers and devices.
-* All files are static. No backend servers needed.
-* Tweak the settings to make your PDF look better.
+* **100% Client-Side**: Zero server-side uploads or APIs. Absolute privacy.
+* **Real-time Live Preview**: View original and scanned documents side-by-side.
+* **Advanced Adjustments**: Fine-tune rotation angle, skew variance, brightness, contrast, noise levels, paper blur, border constraints, sepia/yellowish coloring, and more.
+* **Fast Export**: Instant scanned PDF generation and local browser download.
 
-## 📸 Screenshots
+---
 
-| Origin | Processed |
-|---|---|
-| <img src="https://raw.githubusercontent.com/rwv/lookscanned.io/main/.github/images/ScreenshotOrigin.png" width="300px"> | <img src="https://raw.githubusercontent.com/rwv/lookscanned.io/main/.github/images/ScreenshotProcessed.png" width="300px"> |
+## 🧑‍💻 Development
 
-## 🧑‍💻 Develop
-
+### Setup & Install
+Ensure you have Node.js installed, then install dependencies:
 ```sh
-$ npm run dev # Run Dev Server
-$ npm run build # Build to dist/
+npm install
 ```
 
-## ♥ Credits
+### Dev Server
+Run local development server:
+```sh
+npm run dev
+```
 
-* [baicunko/scanyourpdf: Repository for the Scan Your Pdf community](https://github.com/baicunko/scanyourpdf)
-* [cancerberoSgx/magica: ImageMagick for browser and Node.js, easy setup, high level API and Command Line Interface](https://github.com/cancerberoSgx/magica)
-* [mozilla/pdf.js: PDF Reader in JavaScript](https://github.com/mozilla/pdf.js)
-* [Scanner icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/scanner)
+### Production Build
+Build optimized static assets to the `dist/` directory:
+```sh
+npm run build
+```
 
-## 📝 License
+---
 
-MIT License
+## 📝 Statement & Attribution
+
+PDFSCAN is an open-source project created by building upon the excellent work of the open-source community:
+* Originally adapted from the [lookscanned.io](https://github.com/lookscanned/lookscanned.io) project by [seedgou](https://github.com/seedgou) (MIT License).
+* Heavily inspired by the original scanning concepts in [scanyourpdf](https://github.com/baicunko/scanyourpdf) by [baicunko](https://github.com/baicunko) (MIT License).
+
+### Open Source Projects Used
+* [ImageMagick WASM (Magica)](https://github.com/cancerberoSgx/magica) - WebAssembly port for advanced image processing.
+* [PDF.js](https://github.com/mozilla/pdf.js) - PDF parsing and rendering.
+
+---
+
+## ⚖️ License
+
+Distributed under the **MIT License**. See `LICENSE` for details.

@@ -60,6 +60,9 @@ export async function scanCanvas(
 
   ctx.drawImage(img, 0, 0)
 
+  // Remove the CSS filters so they don't apply to the overlays
+  ctx.filter = 'none'
+
   const noiseImage = await noiseImagePromise
   ctx.drawImage(noiseImage, 0, 0, width, height)
 
