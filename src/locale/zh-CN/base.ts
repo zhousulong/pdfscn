@@ -29,5 +29,10 @@ export const base = {
   upload: {
     hint: '拖拽 PDF 文件到此处，或点击选择',
     selectedFiles: '已选择文件'
+  },
+  preview: {
+    scanned: '扫描效果',
+    original: '原始 PDF'
   }
 }
+

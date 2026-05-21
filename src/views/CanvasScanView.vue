@@ -113,56 +113,14 @@ const generate = async () => {
 .scan-view-layout {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   background-color: var(--color-bg);
   color: var(--color-text);
-  overflow: hidden;
   font-family: var(--font-sans);
 }
 
-.layout-header {
-  height: var(--header-h);
-  border-bottom: 1px solid var(--color-border);
-  background: var(--header-bg);
-  backdrop-filter: blur(12px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 var(--space-4);
-  flex-shrink: 0;
-  z-index: 10;
-}
-
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-}
-
-.divider-vertical {
-  width: 1px;
-  height: 16px;
-  background-color: var(--color-border);
-}
-
-.logo {
-  font-weight: 700;
-  font-size: var(--text-base);
-  letter-spacing: 0.05em;
-  display: flex;
-  align-items: center;
-  gap: 2px;
-}
-
-.logo-text {
-  color: var(--color-text);
-}
-
-.logo-text-accent {
-  color: var(--color-accent);
-}
-
+/* ── Desktop: fixed height split pane ── */
 .split-view {
   display: flex;
   flex: 1;
@@ -208,28 +166,38 @@ const generate = async () => {
   background: var(--color-text-muted);
 }
 
-/* Responsive adjustment for Mobile */
+/* ── Mobile: stacked layout, page-level scrolling ── */
 @media (max-width: 768px) {
+  .scan-view-layout {
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+
   .split-view {
     flex-direction: column;
-    overflow-y: auto;
     height: auto;
+    overflow: visible;
+  }
+
+  /* Preview shown first on mobile (above the fold) */
+  .preview-panel {
+    order: -1;
+    width: 100%;
+    height: auto;
+    min-height: 50vw;
+    overflow: visible;
+    padding: var(--space-3);
+    border-bottom: 1px solid var(--color-border);
   }
 
   .sidebar-panel {
     width: 100%;
     border-right: none;
-    border-bottom: 1px solid var(--color-border);
     height: auto;
-    overflow-y: visible;
-    padding: var(--space-4);
-  }
-
-  .preview-panel {
-    width: 100%;
-    height: 600px;
-    overflow-y: auto;
-    padding: var(--space-4);
+    overflow: visible;
+    padding: var(--space-3);
+    padding-bottom: calc(var(--space-8) + env(safe-area-inset-bottom));
   }
 }
 </style>

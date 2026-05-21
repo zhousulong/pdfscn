@@ -1,6 +1,24 @@
 <template>
-  <n-space vertical>
-    <SideBySidePreview>
+  <n-space vertical class="preview-compare-container">
+    <!-- Segmented tabs switch shown only on mobile -->
+    <div class="mobile-tabs-container">
+      <div class="segmented-control">
+        <button
+          :class="['tab-btn', { active: activeTab === 'scan' }]"
+          @click="activeTab = 'scan'"
+        >
+          {{ t('preview.scanned') }}
+        </button>
+        <button
+          :class="['tab-btn', { active: activeTab === 'pdf' }]"
+          @click="activeTab = 'pdf'"
+        >
+          {{ t('preview.original') }}
+        </button>
+      </div>
+    </div>
+
+    <SideBySidePreview :active-tab="activeTab">
       <template #pdf>
         <ImagePreview :image="image?.blob" />
       </template>
@@ -23,9 +41,12 @@ import { ref } from 'vue'
 import { computedAsync } from '@vueuse/core'
 import PreviewPagination from './PreviewPagination.vue'
 import { NSpace } from 'naive-ui'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const page = ref(1)
 const scanning = ref(false)
+const activeTab = ref<'scan' | 'pdf'>('scan')
 
 interface PDFRenderer {
   renderPage(
@@ -97,3 +118,53 @@ const numPages = computedAsync(async () => {
   return await props.pdfRenderer.getNumPages()
 }, 1)
 </script>
+
+<style scoped>
+.preview-compare-container {
+  width: 100%;
+}
+
+.mobile-tabs-container {
+  display: none;
+  justify-content: center;
+  margin-bottom: var(--space-2);
+}
+
+.segmented-control {
+  display: flex;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 2px;
+  width: 100%;
+  max-width: 280px;
+}
+
+.tab-btn {
+  flex: 1;
+  text-align: center;
+  padding: 6px 12px;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  color: var(--color-text-dim);
+  transition: all var(--transition);
+}
+
+.tab-btn:hover {
+  color: var(--color-text);
+}
+
+.tab-btn.active {
+  background: var(--color-surface);
+  color: var(--color-accent);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 768px) {
+  .mobile-tabs-container {
+    display: flex;
+  }
+}
+</style>
+

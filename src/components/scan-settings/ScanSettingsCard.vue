@@ -61,6 +61,13 @@ const config = useVModel(props, 'config', emit)
   border: 1px solid var(--color-border);
 }
 
+@media (max-width: 768px) {
+  .switches-row {
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+}
+
 .settings-list {
   display: flex;
   flex-direction: column;

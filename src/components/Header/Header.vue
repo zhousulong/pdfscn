@@ -546,8 +546,12 @@ onUnmounted(() => {
     padding: var(--space-2);
   }
   .changelog-panel {
-    width: calc(100vw - var(--space-6));
-    right: -40px;
+    position: fixed;
+    top: calc(var(--header-h) + 6px);
+    left: var(--space-3);
+    right: var(--space-3);
+    width: auto;
+    max-height: calc(100vh - var(--header-h) - 24px);
   }
 }
 </style>

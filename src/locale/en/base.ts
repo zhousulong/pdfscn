@@ -29,5 +29,10 @@ export const base = {
   upload: {
     hint: 'Drag and drop PDF here, or click to select',
     selectedFiles: 'Selected Files'
+  },
+  preview: {
+    scanned: 'Scanned',
+    original: 'Original'
   }
 }
+
