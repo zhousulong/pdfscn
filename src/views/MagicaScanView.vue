@@ -56,8 +56,19 @@ const { t } = useI18n()
 const message = useMessage()
 
 useHead({
-  title: t('base.scanTitle') + ' - ' + t('base.title'),
-  meta: [{ name: 'description', content: t('base.description') }]
+  title: () => `${t('base.scanTitle')} · ${t('base.subtitle')} - ${t('base.title')}`,
+  meta: [
+    { name: 'description', content: () => t('base.description') },
+    { name: 'keywords', content: () => t('base.keywords') },
+    // Open Graph
+    { property: 'og:title', content: () => `${t('base.scanTitle')} - ${t('base.title')}` },
+    { property: 'og:description', content: () => t('base.description') },
+    { property: 'og:type', content: 'website' },
+    // Twitter Card
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: () => `${t('base.scanTitle')} - ${t('base.title')}` },
+    { name: 'twitter:description', content: () => t('base.description') }
+  ]
 })
 
 const pdf = ref<File | undefined>(undefined)
@@ -112,11 +123,12 @@ const generate = async () => {
 .scan-view-layout {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  width: 100vw;
+  height: 100vh;
+  width: 100%;
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans);
+  overflow: hidden;
 }
 
 /* ── Desktop: fixed height split pane ── */
@@ -124,7 +136,7 @@ const generate = async () => {
   display: flex;
   flex: 1;
   overflow: hidden;
-  height: calc(100vh - var(--header-h));
+  min-height: 0;
 }
 
 .sidebar-panel {
