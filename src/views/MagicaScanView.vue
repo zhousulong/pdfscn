@@ -36,7 +36,6 @@
 </template>
 
 <script lang="ts" setup>
-import { NSpace } from 'naive-ui'
 import { type ScanConfig, defaultConfig, MagicaScanner } from '@/utils/scan-renderer/magica-scan'
 import ScanSettingsCard from '@/components/scan-settings/ScanSettingsCard.vue'
 import PDFUpload from '@/components/pdf-upload/PDFUpload.vue'
