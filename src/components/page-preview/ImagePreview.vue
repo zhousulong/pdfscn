@@ -72,10 +72,11 @@ const frameStyle = computed(() => {
   height: 100%;
 }
 
-/* On desktop, restrict height to fit on screen and let aspect-ratio size the width */
+/* On desktop, fill parent's height (which matches the screen layout) */
 @media (min-width: 769px) {
   .page-frame {
-    height: calc(100vh - var(--header-h) - 160px);
+    height: 100%;
+    max-height: 100%;
     width: auto;
     max-width: 100%;
   }

@@ -1,5 +1,5 @@
 <template>
-  <n-space vertical class="preview-compare-container">
+  <div class="preview-compare-container">
     <!-- Segmented tabs switch shown only on mobile -->
     <div class="mobile-tabs-container">
       <div class="segmented-control">
@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <SideBySidePreview :active-tab="activeTab">
+    <SideBySidePreview :active-tab="activeTab" class="preview-compare-content">
       <template #pdf>
         <ImagePreview :image="image?.blob" />
       </template>
@@ -30,8 +30,10 @@
         />
       </template>
     </SideBySidePreview>
-    <PreviewPagination v-model:page="page" :numPages="numPages" v-if="numPages >= 2" />
-  </n-space>
+    <div class="pagination-wrapper" v-if="numPages >= 2">
+      <PreviewPagination v-model:page="page" :numPages="numPages" />
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -40,7 +42,6 @@ import ImagePreview from './ImagePreview.vue'
 import { ref } from 'vue'
 import { computedAsync } from '@vueuse/core'
 import PreviewPagination from './PreviewPagination.vue'
-import { NSpace } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
@@ -122,6 +123,9 @@ const numPages = computedAsync(async () => {
 <style scoped>
 .preview-compare-container {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
 }
 
 .mobile-tabs-container {
@@ -161,10 +165,28 @@ const numPages = computedAsync(async () => {
   box-shadow: var(--shadow-sm);
 }
 
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (min-width: 769px) {
+  .preview-compare-container {
+    height: 100%;
+    min-height: 0;
+  }
+  .preview-compare-content {
+    flex: 1;
+    min-height: 0;
+  }
+}
+
 @media (max-width: 768px) {
   .mobile-tabs-container {
     display: flex;
   }
 }
 </style>
+
 

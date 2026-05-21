@@ -145,6 +145,15 @@ const generate = async () => {
   height: 100%;
 }
 
+@media (min-width: 769px) {
+  .preview-panel {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+}
+
+
 /* Custom Scrollbars */
 .sidebar-panel::-webkit-scrollbar,
 .preview-panel::-webkit-scrollbar {

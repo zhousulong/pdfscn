@@ -1,17 +1,15 @@
 <template>
-  <n-grid cols="1 m:2" x-gap="25px" y-gap="25px" responsive="screen" class="preview-grid">
-    <n-grid-item class="preview-grid-item" :class="{ 'mobile-hidden': activeTab !== 'pdf' }">
+  <div class="preview-grid">
+    <div class="preview-grid-item" :class="{ 'mobile-hidden': activeTab !== 'pdf' }">
       <slot name="pdf" />
-    </n-grid-item>
-    <n-grid-item class="preview-grid-item" :class="{ 'mobile-hidden': activeTab !== 'scan' }">
+    </div>
+    <div class="preview-grid-item" :class="{ 'mobile-hidden': activeTab !== 'scan' }">
       <slot name="scan" />
-    </n-grid-item>
-  </n-grid>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { NGrid, NGridItem } from 'naive-ui'
-
 defineProps<{
   activeTab: 'pdf' | 'scan'
 }>()
@@ -19,12 +17,29 @@ defineProps<{
 
 <style scoped>
 .preview-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
   width: 100%;
 }
+
 .preview-grid-item {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+}
+
+@media (min-width: 769px) {
+  .preview-grid {
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    min-height: 0;
+  }
+  .preview-grid-item {
+    height: 100%;
+    min-height: 0;
+  }
 }
 
 @media (max-width: 768px) {
